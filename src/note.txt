@@ -1,0 +1,33 @@
+
+Form Validation
+
+This is a form input validation example , a way to the process, confirm or verifying the accuracy or correctness of the user input. 
+That is developed by React Js library as a front end from validations. No third party library or frampwork used, just react hook. The "useState" and "useEffect"
+
+
+1) Run "npm install"
+2) Npm start
+3) Wala, open any web browser you prefer or like the hit a url "localhost:30000"
+
+FOR EDITING USE
+
+1)Add another form field
+#Make use the field has the following "attributes"
+a) A placeholder
+b) A value
+c) A name attribute
+d) An onChange which is binded to "handleChange" or edit your own
+e) A paragraph tag with its a binded to it's name attribute for Error object
+
+# defaultValues function
+Assign your value to an empty string
+
+# checkValues function
+Add your validations logic
+
+# Evoke checkValues(a, b)
+Where "a" is formValues.YourInputName
+Where "b" is YourInputName in form of a string
+
+TEST TEST TEST!
+Then you are set

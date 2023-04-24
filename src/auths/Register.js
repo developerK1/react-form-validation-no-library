@@ -1,17 +1,18 @@
-import { useEffect, useState } from 'react';
-import PopUp from '../components/modals/PopUp';
+import { useEffect, useState } from 'react'
 
-const Login = () => {
+const Register = () => {
 
     const defaultValues = {
         name : "",
+        lastname : "",
         email : "",
         password : "",
+        confirmpassword : "",
+        body : "",
     }
     const [formValues, setFormValues] = useState(defaultValues);
     const [errors, setErrors] = useState({});
     const [readyInputs, setReadyInputs] = useState(false);
-    const [popUpShow, setPopUpShow] = useState(false);
 
     const handleChange = e =>{
         const {name , value} = e.target;
@@ -50,6 +51,27 @@ const Login = () => {
                 }
             }
 
+
+            if(input === "confirmpassword"){
+                if(emptyReg.match(val)){
+                    Errors.confirmpassword = `${input} cannot be empty!`;
+                } else if(val.length < 5 && val.length > 10){
+                    Errors.confirmpassword = "PassWord Must Be more than 6 character less than 10" ;
+                }else{
+                    if(formValues.password !== val ){
+                        Errors.confirmpassword = "PassWord do not match" ;
+                    }
+                }
+            }
+
+            if(input === "lastname"){
+                if(emptyReg.match(val)){
+                    Errors.lastname = `${input} cannot be empty!`;
+                } else if(val.length < 3){
+                    Errors.lastname = "Last Name cannot be less than 2 characters" ;
+                }
+            }
+
             if(input === "name"){
                 if(emptyReg.match(val)){
                     Errors.name = `${input} cannot be empty!`;
@@ -57,12 +79,22 @@ const Login = () => {
                     Errors.name = "Name cannot be less than 2 characters"  ;
                 }
             }
+
+            if(input === "body"){
+                if(emptyReg.match(val)){
+                    Errors.body = `${input} cannot be empty!`;
+                }
+            }
+        
         
         }
 
         checkValues(formValues.name, "name");
+        checkValues(formValues.lastname, "lastname");
         checkValues(formValues.email, "email");
-        checkValues(formValues.password, "password"); 
+        checkValues(formValues.password, "password");
+        checkValues(formValues.confirmpassword, "confirmpassword");
+        checkValues(formValues.body, "body");   
 
         return Errors;
     }
@@ -70,7 +102,7 @@ const Login = () => {
 
     useEffect(() => {
       if(Object.keys(errors).length === 0 && readyInputs){
-        setPopUpShow(true)
+        console.log("well done, valid inputs")
       }else{
         console.log(errors)
     }
@@ -84,29 +116,45 @@ const Login = () => {
                 <div className='centerfy-col'>
                     <label>Name</label>
                     <input type='text' placeholder='Name here..' name="name"  value={formValues.name}
-                    onChange={(e)=>handleChange(e)}/>   
+                    onChange={(e)=>handleChange(e)}/>
                 </div>
-                <h6 className='error-red'>{errors.name}</h6>
+                <p className='error-red'>{errors.name}</p>
+                <div className='centerfy-col'>
+                    <label>Last Name</label>
+                    <input type='text' placeholder='Name here..' name='lastname' value={formValues.lastname}
+                    onChange={(e)=>handleChange(e)}/>
+                </div>
+                <p className='error-red'>{errors.lastname}</p>
                 <div className='centerfy-col'>
                     <label>Email</label>
                     <input type='text' placeholder='Name here..' name='email' value={formValues.email}
                     onChange={(e)=>handleChange(e)}/>
                 </div>
-                <h6 className='error-red'>{errors.email}</h6>
+                <p className='error-red'>{errors.email}</p>
                 <div className='centerfy-col'>
                     <label>Password</label>
                     <input type='password' name='password' value={formValues.password}
                     onChange={(e)=>handleChange(e)}/>
                 </div>
-                <h6 className='error-red'>{errors.password}</h6>
+                <p className='error-red'>{errors.password}</p>
                 <div className='centerfy-col'>
-                    <button>Sign In</button>
+                    <label>Confirm Password</label>
+                    <input type='password'  name='confirmpassword' value={formValues.confirmpassword}
+                    onChange={(e)=>handleChange(e)}/>
+                </div>
+                <p className='error-red'>{errors.confirmpassword}</p>
+                <div className='body'>
+                    <textarea placeholder='How can we help' name="body" value={formValues.body}
+                    onChange={(e)=>handleChange(e)}></textarea>
+                </div>
+                <p className='error-red'>{errors.body}</p>
+                <div className='centerfy-col'>
+                    <button>Register</button>
                 </div>
             </form>
         </article>
-        {popUpShow ? <h6opUp setState={setPopUpShow}/> : ""}
     </section>
   )
 }
 
-export default Login;
+export default Register;

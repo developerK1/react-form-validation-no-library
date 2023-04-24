@@ -20,6 +20,26 @@ section {
   min-height : 100vh;
   display: flex;
 }
+main {
+  position: relative;
+}
+a {
+  color : #ffffff;
+  text-decoration: none !important;
+}
+.error-red {
+  color: red !important;
+  font-weight: 300;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  font-style: italic;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin: 7px auto;
+}
 /*=============================================
         HEADER STYLINGS
 =============================================*/
@@ -43,6 +63,21 @@ header ul li {
 }
 
 /*=============================================
+        POPUP STYLINGS
+=============================================*/
+.pop-up {
+  height: 100vh;
+  width : 100%;
+  display: flex;
+}
+.pop-up article {
+  width : 600px;
+  margin : auto;
+  height: 50vh;
+  background-color: #e22c56;
+  box-shadow: 3px 3px 3px black;
+}
+/*=============================================
         FORM STYLINGS
 =============================================*/
 section article {
@@ -50,23 +85,138 @@ section article {
 }
 form {
   width: 600px;
-  box-shadow: 2px 3px 3px black;
+  padding: 1% 3px 1% 15px;
+  box-shadow: 1px 11px 17px 2px black;
+  text-align: center;
+  border-radius: 10px;
 }
 form .centerfy-col,
 form .body,
 form input,
-form label, 
-form textarea {
-  width : 100%;
+form label {
   height: 100%;
+  text-align: center;
+  font-weight: 700;
+  border : none;
+}
+form .centerfy-col {
+  flex-direction: row;
+  justify-content: flex-end;
+  background-color:  #e22c56;
+}
+
+form label {
+  width : 30%;
+  color : white;
+}
+form label ,
+form input {
+  display: flex;
+  align-items:center;
+  justify-content: flex-end;
+  padding-right:3% ;
+}
+form input {
+  border-bottom: 2px solid #e22c56;
+  width : 70%;
+  text-align: left;
+  padding-left:3% ;
 }
 form .centerfy-col {
   height: 10vh;
+  margin : 8px 0px;
   justify-content: space-evenly;
 }
 form textarea {
   min-height: 15vh;
-  margin : 8px 0px;
+  margin: 8px 0px;
+  width: 100%;
+  text-align: center;
+  padding-top: 3%;
+}
+form button {
+  transition: all 0.7s ease-in-out;
+  cursor: pointer;
+  width: 135px;
+  height: 47px;
+  border-radius: 8px;
+  font-size: 18px;
+  box-shadow: 1px 4px 7px black;
+}
+/*=============================================
+        ABOUT STYLINGS
+=============================================*/
+#about {
+  min-height : 100vh;
+  width : 100%;
+  display : flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+#about figure {
+  margin : auto;
+}
+#about article {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 3% 3%;
+  align-items: center;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}
+#about aside {
+  width: 44%;
+  padding: 3% 0%;
+  display: fe;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  height: 500px;
+}
+#about .function-details {
+  width : 100%;
+  border-radius: 0px 0px 12px 12px;
+  display: flex;
+  flex-wrap: wrap;
+}
+#about .function-details aside {
+  width: 298px;
+  margin: 8px;
+  height: 210px;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  box-shadow: 0 7px 10px #0000009e;
+  border-radius: 0px 0px 12px 12px;
+}
+#about .function-details aside p {
+  margin-bottom: 12px;
+}
+#about .details {
+  border-radius:12px 12px 0px 0px ;
+}
+/*=============================================
+        HOVER, ACTIVE , FOCUS STYLINGS
+=============================================*/
+form input:focus-visible {
+  outline: none;
+  border-bottom: 5px #e22c5698 dotted;
+  font-style: italic;
+}
+form button:hover {
+  background-color: black;
+  border-radius: 12px;
+  color: white;
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-style: italic;
+  border-bottom: #e22c56 2px solid;
 }
 /*=============================================
         FOOTER STYLINGS
